@@ -1,0 +1,87 @@
+(defpoll clock_hour :interval "5s" "date +\%I")
+(defpoll clock_min :interval "5s" "date +\%M")
+
+(defpoll bat_percentage :interval "10s" "./scripts/battery --bat")
+(defpoll bat_color :interval "10s" "./scripts/battery --bat-color")
+
+(defpoll vol_percent :interval "5s" "./scripts/getvol.sh vol")
+(defpoll bright_percent :interval "5s" "./scripts/get_bright.sh get")
+
+(defwidget clock []
+  (box :orientation "h"
+       :halign "center"
+       :class "clock_box"
+    (label :text "    ${clock_hour} : ${clock_min}"
+           :class "clock_data")
+  )
+)
+
+
+(defwidget bat []
+  (box :orientation "h"
+       :halign "center"
+       :class "bat_box"
+       :style "border-color: ${bat_color}"
+    (label :text "     ${bat_percentage}%"
+           :class "bat_data"
+           :style "color: ${bat_color}")
+  )
+)
+
+
+(defwidget temp []
+  (label :text "${EWW_TEMPS['CORETEMP_PACKAGE_ID_0']}")
+)
+
+;; audio_bright widget
+(defwindow pop_bright_volumen :monitor 0
+                             :geometry (geometry :x "-20px"
+                  					                     :y "7%" 
+                                                 :anchor "top right"
+                                                 :width "270px" 
+                                                 :height "60px")
+                             :anchor "top right"
+                             :focusable "none"
+                             :stacking "fg" 
+                               
+  (box :orientation "v"
+       :halign "center"
+       :class "audio_bright_widget"
+    "hello"
+    "hello"
+  )
+)
+
+
+(defwidget audio_bright []
+  (button :onclick "./scripts/pop.sh pop_bright_volumen"
+    (box :orientation "h"
+         :halign "center"
+         :class "audio_bright_box"
+      (label :text "   ${vol_percent}   󰃞   ${bright_percent}%"
+             :class "audio_bright_data"
+      )
+    )
+  )
+)
+
+(defwindow top_bar
+           :monitor 0
+           :geometry (geometry :x "0%" ;; window x position 
+                               :y "0%" ;; window y position 
+                               :width "100%" 
+                               :height "30px"
+                               :anchor "top center") ;; in wich part of the screen will be anchord
+           :stacking "fg" ;; the position int the window stakc
+           :exclusive true ;; if it should make exclusive space
+           :focusable "none" ;; if the window can be focused
+  (box :orientation "h" 
+       :halign "center" 
+       :space-evenly false
+    
+    (clock)
+    (bat)
+    (audio_bright)
+  )
+)
+

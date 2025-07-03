@@ -1,0 +1,41 @@
+#!/bin/bash
+
+battery_normal_color="#a6e3a1"
+battery_charging_color="#f9e2af"
+
+battery_low_color="#f38ba8"
+
+
+
+battery() {
+	#BAT=`ls /sys/class/power_supply | grep BAT | head -n 1`
+	cat /sys/class/power_supply/BAT0/capacity
+}
+
+battery_stat() {
+	cat /sys/class/power_supply/BAT0/status
+}
+
+battery_color() {
+  status=$(cat /sys/class/power_supply/BAT0/status)
+  percentage=$(cat /sys/class/power_supply/BAT0/capacity)
+
+  if [[ $status == "Charging" ]]; then
+    echo $battery_charging_color
+  elif [[ $percentage -le 10 ]]; then
+    echo $battery_low_color
+  else
+    echo $battery_normal_color
+  fi
+}
+
+if [[ "$1" == "--bat" ]]; then
+	battery
+
+elif [[ "$1" == "--bat-st" ]]; then
+	battery_stat
+
+elif [[ "$1" == "--bat-color" ]]; then
+  battery_color
+fi
+
