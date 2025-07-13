@@ -1,0 +1,40 @@
+(defwindow pop_bright_volumen :monitor 0
+                             :geometry (geometry :x "-20px"
+                  					                     :y "7%" 
+                                                 :anchor "top right"
+                                                 :width "270px" 
+                                                 :height "60px")
+                             :anchor "top right"
+                             :focusable "none"
+                             :stacking "fg" 
+                               
+  (box :orientation "v"
+       :halign "center"
+       :class "audio_bright_widget"
+
+    (box :orientation "h"
+      (label :text "󰃠 ")
+      (scale :max 101
+         :min 0
+         :value bright_percent
+         :width 100
+         :class "brightbar"
+         :tooltip "${bright_percent}%"
+         :onchange "brightnessctl set {}% | ${EWW_CMD} poll bright_percent"
+      )
+    )
+
+    (box :orientation "h"
+      (label :text " ")
+      (scale :max 101
+         :min 0
+         :value vol_percent
+         :width 100
+         :class "brightbar"
+         :tooltip "${vol_percent}%"
+         :onchange "pactl set-sink-volume @DEFAULT_SINK@ {}% | ${EWW_CMD} poll vol_percent"
+      )
+    )
+
+  )
+)

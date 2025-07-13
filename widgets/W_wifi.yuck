@@ -1,0 +1,4 @@
+(defpoll wifi_strength :interval "60s" 
+  "./scripts/volume.sh vol")
+
+

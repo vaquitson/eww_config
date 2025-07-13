@@ -1,0 +1,13 @@
+(defwidget power[]
+  (button :onclick "./scripts/pop.sh pop_power_menu"
+    (box :orientation "h"
+         :halign "center"
+         :class "power_box"
+         :space-evenly false
+      (label :text "⏻"
+             :class "power_data")
+    )
+  )
+)
+
+

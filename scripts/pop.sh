@@ -17,8 +17,17 @@ open_pop_bright_volumen(){
   fi
 }
 
+open_pop_power_menu(){
+  close
+  if [[ $CUR_TBW != " pop_power_menu" ]]; then
+    ${EWW_BIN} open pop_power_menu --id tbw
+  fi
+}
+
 
 if [[ "$1" == "pop_bright_volumen" ]]; then
   open_pop_bright_volumen
+elif [[ "$1" == "pop_power_menu" ]]; then
+  open_pop_power_menu
 fi
 

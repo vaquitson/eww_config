@@ -1,0 +1,21 @@
+(defpoll vol_percent :interval "60s" 
+  "./scripts/volume.sh vol")
+
+
+(defpoll bright_percent :interval "60s" 
+                        :initial-value "0"
+  "./scripts/bright.sh bright"
+)
+
+
+(defwidget audio_bright []
+  (button :onclick "./scripts/pop.sh pop_bright_volumen"
+    (box :orientation "h"
+         :halign "center"
+         :class "audio_bright_box"
+
+      (label :text "   ${vol_percent}%   󰃞   ${bright_percent}%"
+             :class "audio_bright_data")
+    )
+  )
+)

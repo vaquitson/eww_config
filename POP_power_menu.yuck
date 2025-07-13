@@ -1,0 +1,37 @@
+
+(defvar sleep_bg_color "#181825")
+(defvar sleep_color "#74c7ec")
+
+(defwindow pop_power_menu :monitor 0
+                             :geometry (geometry :x "-20px"
+                  					                     :y "7%" 
+                                                 :anchor "top right"
+                                                 :width "300px" 
+                                                 :height "100px")
+                             :anchor "top right"
+                             :focusable "none"
+                             :stacking "fg" 
+  (box :orientation "h"
+       :halign "center"
+       :class "power_menu_widget_box"
+
+    (button :onclick "systemctl suspend"
+            :class "power_menu_sleep_button"
+
+      "󰒲")
+
+    (button :onclick "loginctl terminate-session $XDG_SESSION_ID"
+            :class "power_menu_log_out_button"
+      "󰗽")
+
+    (button :onclick "systemctl reboot"
+            :class "power_menu_pweroff_button"
+      "⏻")
+
+    (button :onclick "systemctl reboot"
+            :class "power_menu_reboot_button"
+      "")
+
+  )
+)
+ 

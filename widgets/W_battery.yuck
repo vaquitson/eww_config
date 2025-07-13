@@ -1,0 +1,24 @@
+
+(defpoll bat_percentage :interval "5s" 
+  "./scripts/battery.sh -percentage")
+
+(defpoll bat_icon :interval "5s" 
+  "./scripts/battery.sh -icon")
+
+(defpoll bat_color :interval "2s"
+                   :initial-value "#a6e3a1"
+  "./scripts/battery.sh -color"
+)
+
+
+(defwidget bat []
+  (box :orientation "h"
+       :halign "center"
+       :class "bat_box"
+       :style "border-color: ${bat_color}"
+
+    (label :text "${bat_icon}  ${bat_percentage} %" 
+           :class "bat_data"
+           :style "color: ${bat_color}")
+  )
+)

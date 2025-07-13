@@ -1,0 +1,13 @@
+(defpoll clock_hour :interval "5s" "date +\%I")
+(defpoll clock_min :interval "5s" "date +\%M")
+
+(defwidget clock []
+  (box :orientation "h"
+       :halign "center"
+       :class "clock_box"
+    (label :text "    ${clock_hour} : ${clock_min}"
+           :class "clock_data")
+  )
+)
+
+

@@ -2,51 +2,185 @@
   all: unset;
 }
 
-$primary-color: #cba6f7;
 
 .top_bar {
   font-weight: bold;
   font-size: 16px;
 }
 
+/* top bar box mixin */
+@mixin top_bar_box($color) {
+  margin-top: 10px;
+  margin-right: 7px;
+
+  border: 2px solid;
+  border-color: $color;
+  border-radius: 10px;
+
+  padding: 2px 5px;
+}
+
+
+
+/* #### Clock box #### */
+$clock_color: #89dceb;
 .clock_box {
-  margin-top: 10px;
-  border: 2px solid;
-  border-color: #89dceb;
-  border-radius: 10px;
-  padding: 2px 5px;
+  @include top_bar_box($clock_color);
+
+  .clock_data {
+    color: $clock_color;
+    padding: 2px 2px;
+  }
 }
 
-.clock_data {
-  color: #89dceb;
-}
 
+/* #### bat box #### */
+$bat_color: #89dceb;
 .bat_box {
-  margin-top: 10px;
-  border: 2px solid;
-  border-color: #89dceb;
-  border-radius: 10px;
-  padding: 2px 5px;
+  @include top_bar_box($bat_color);
+
+  .bat_data {
+    padding: 2px 2px;
+  }
 }
 
-.bat_data {
-  padding: 2px 2px;
-}
 
+/* #### audio bright color #### */
+$audio_bright_color: #cba6f7;
 .audio_bright_box {
-  margin-top: 10px;
-  border: 2px solid;
-  border-color: #cba6f7;
-  border-radius: 10px;
-  padding: 2px 5px;
+  @include top_bar_box($audio_bright_color);
+
+  .audio_bright_data {
+    padding: 2px 2px;
+    color: $audio_bright_color;
+  }
 }
 
-.audio_bright_data {
-  padding: 2px 2px;
-  color: #cba6f7;
-}
 
 .audio_bright_widget {
-  background-color: #cba6f7;
+  border: 2px solid;
+  border-color: #cba6f7;
+  background-color: #11111b;
 }
 
+
+/* #### POWER MENU SCSS #### */
+
+$power_color: #f38ba8;
+.power_box {
+  @include top_bar_box($power_color);
+
+  .power_data {
+    padding-left: 5px;
+    padding-right: 8px;
+    color: $power_color;
+  }
+}
+
+/* #### power menu POP #### */
+
+$pop_power_menu_button_bg_color: #11111b;
+
+@mixin pop_power_menu_button($color) {
+  background-color: $pop_power_menu_button_bg_color;
+  color: $color;
+  
+  font-size: 30px;
+
+  padding-left: 10px;
+  padding-right: 20px;
+}
+
+.power_menu_widget_box {
+  border: 3px solid;
+  border-radius: 10px;
+  border-color: #cdd6f4;
+  padding: 0px;
+}
+
+.power_menu_sleep_button {
+  @include pop_power_menu_button(#74c7ec);
+
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.power_menu_sleep_button:hover {
+  background-color: #74c7ec;
+  color: #11111b;
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+
+.power_menu_log_out_button {
+  @include pop_power_menu_button(#94e2d5);
+}
+
+
+.power_menu_log_out_button:hover {
+  background-color: #94e2d5;
+  color: #11111b;
+  transition: background-color 0.5s ease, color 0.5s ease; 
+}
+
+
+.power_menu_pweroff_button {
+  background-color: #11111b;
+  color: #f38ba8;
+  font-size: 25px;
+  padding-left: 10px;
+  padding-right: 20px;
+}
+
+
+.power_menu_pweroff_button:hover {
+  background-color: #f38ba8;
+  color: #11111b;
+  transition: background-color 0.5s ease, color 0.5s ease; 
+}
+
+
+.power_menu_reboot_button {
+  background-color: #11111b;
+  color: #a6e3a1;
+  font-size: 25px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  padding-left: 10px;
+  padding-right: 20px;
+}
+
+
+.power_menu_reboot_button:hover {
+  background-color: #a6e3a1;
+  color: #11111b;
+  transition: background-color 0.5s ease, color 0.5s ease; 
+}
+
+
+
+/* scale */
+scale trough {
+  min-height: 14px;
+  border-radius: 10px; 
+  border: 1px solid;
+  border-color: #181825;
+}
+
+
+.brightbar trough {
+  background-color: #313244;
+}
+
+.brightbar trough highlight {
+  background-color: #a6e3a1;
+  border-radius: 10px; 
+}
+
+
+
+/* #### top bar right division #### */
+
+.right_side {
+  padding-right: 15px;
+}
