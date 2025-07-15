@@ -1,0 +1,11 @@
+/* #### bat box #### */
+$bat_color: #89dceb;
+.bat_box {
+  @include top_bar_box($bat_color);
+
+  .bat_data {
+    padding: 2px 2px;
+  }
+}
+
+

@@ -13,7 +13,10 @@
        :class "audio_bright_widget"
 
     (box :orientation "h"
-      (label :text "󰃠 ")
+         :space-evenly false
+      (label :text "󰃠  "
+             :class "pop_bright_vol_icon")
+
       (scale :max 101
          :min 0
          :value bright_percent
@@ -25,7 +28,9 @@
     )
 
     (box :orientation "h"
-      (label :text " ")
+         :space-evenly false
+      (label :text "  "
+             :class "pop_bright_vol_icon")
       (scale :max 101
          :min 0
          :value vol_percent
@@ -35,6 +40,5 @@
          :onchange "pactl set-sink-volume @DEFAULT_SINK@ {}% | ${EWW_CMD} poll vol_percent"
       )
     )
-
   )
 )

@@ -1,0 +1,16 @@
+
+/* #### audio bright color #### */
+$audio_bright_color: #cba6f7;
+.audio_bright_box {
+  @include top_bar_box($audio_bright_color);
+
+  padding: 2px 2px;
+  color: $audio_bright_color;
+
+  &:hover {
+    background-color: $audio_bright_color;
+    color: #11111b;
+    transition: background-color 0.5s ease, color 0.5s ease;
+  }
+
+}

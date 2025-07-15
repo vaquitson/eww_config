@@ -5,8 +5,8 @@
 (include "./widgets/W_power.yuck")
 
 ;; pops for other widgets
-(include "./POP_vol_bright.yuck")
-(include "./POP_power_menu.yuck")
+(include "./pops/POP_vol_bright.yuck")
+(include "./pops/POP_power_menu.yuck")
 
 
 (defwidget right [] 

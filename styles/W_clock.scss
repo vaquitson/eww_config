@@ -1,0 +1,11 @@
+
+/* #### Clock box #### */
+$clock_color: #89dceb;
+.clock_box {
+  @include top_bar_box($clock_color);
+
+  .clock_data {
+    color: $clock_color;
+    padding: 2px 2px;
+  }
+}

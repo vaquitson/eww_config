@@ -1,0 +1,25 @@
+/* POP birght vol */
+$pop_audio_bright_bg_color: #11111b;
+$pop_window_border_color: #cdd6f4;
+
+.audio_bright_widget {
+  background-color: $pop_audio_bright_bg_color; 
+  border: 3px solid;
+  border-radius: 10px;
+  border-color: $pop_window_border_color;
+  padding: 10px;
+}
+
+.brightbar trough {
+  background-color: #313244;
+}
+
+.brightbar trough highlight {
+  background-color: #cba6f7;
+  border-radius: 10px; 
+}
+
+.pop_bright_vol_icon {
+  padding: 5px;
+}
+

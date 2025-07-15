@@ -10,12 +10,8 @@
 
 (defwidget audio_bright []
   (button :onclick "./scripts/pop.sh pop_bright_volumen"
-    (box :orientation "h"
-         :halign "center"
-         :class "audio_bright_box"
-
-      (label :text "   ${vol_percent}%   󰃞   ${bright_percent}%"
-             :class "audio_bright_data")
-    )
+          :class "audio_bright_box"
+    "   ${vol_percent}%   󰃞   ${bright_percent}%"
+    
   )
 )

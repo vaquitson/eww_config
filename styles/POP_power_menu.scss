@@ -1,0 +1,55 @@
+/* #### power menu POP #### */
+$pop_power_menu_button_bg_color: #11111b;
+$pop_window_border_color: #cdd6f4; 
+
+@mixin pop_power_menu_button($color) {
+  background-color: $pop_power_menu_button_bg_color;
+  color: $color; 
+  font-size: 30px;
+  padding-left: 10px;
+  padding-right: 20px;
+
+  &:hover {
+    background-color: $color;
+    color: $pop_power_menu_button_bg_color;
+    transition: background-color 0.5s ease, color 0.5s ease;
+  }
+}
+
+.power_menu_widget_box {
+  border: 3px solid;
+  border-radius: 10px;
+  border-color: $pop_window_border_color;
+  padding: 0px;
+}
+
+
+.power_menu_sleep_button {
+  @include pop_power_menu_button(#74c7ec);
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+
+.power_menu_log_out_button {
+  @include pop_power_menu_button(#94e2d5);
+}
+
+
+.power_menu_pweroff_button {
+  @include pop_power_menu_button(#f38ba8);
+  font-size: 26px;
+}
+
+.power_menu_reboot_button  {
+  @include pop_power_menu_button(#a6e3a1);
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  font-size: 26px;
+}
+
+.pop_bright_volo_bright_icon {
+  padding: 0px;
+  margin: 0px;
+}
+
