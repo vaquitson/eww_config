@@ -24,14 +24,13 @@
             :class "power_menu_log_out_button"
       "󰗽")
 
-    (button :onclick "systemctl reboot"
+    (button :onclick "systemctl poweroff"
             :class "power_menu_pweroff_button"
       "⏻")
 
     (button :onclick "systemctl reboot"
             :class "power_menu_reboot_button"
       "")
-
   )
 )
  

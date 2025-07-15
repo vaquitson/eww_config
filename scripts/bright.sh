@@ -1,5 +1,3 @@
-
-
 bright_percent () {
   cur=$(cat /sys/class/backlight/*/brightness)
   max=$(cat /sys/class/backlight/*/max_brightness)
