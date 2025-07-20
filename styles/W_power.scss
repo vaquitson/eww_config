@@ -3,8 +3,8 @@ $power_color: #f38ba8;
 .power_box {
   @include top_bar_box($power_color);
 
-  padding-left: 5px;
-  padding-right: 8px;
+  padding-left: 8px;
+  padding-right: 11px;
   color: $power_color;
 
   &:hover {

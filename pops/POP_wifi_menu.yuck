@@ -1,0 +1,32 @@
+(defpoll network_json :interval "10s"
+  "python3 ./scripts/wifi.py")
+
+(defwindow network_menu :monitor 0
+                             :geometry (geometry :x "20px"
+                  					                     :y "7%" 
+                                                 :anchor "top right"
+                                                 :width "400px" 
+                                                 :height "60px")
+                             :anchor "top right"
+                             :focusable "none"
+                             :stacking "fg" 
+
+  (box :orientation "v"
+       :class "POP_wifi_menu_main_box"
+    (for network in network_json
+      (button :class "POP_wifi_menu_net_button ${network['strength'] < 50 ? 'ssid_weak' :
+                 network['strength'] < 75 ? 'ssid_medium' : 'ssid_strong'}"
+        (box :orientation "h"
+             :class "POP_wifi_menu_net_box"
+          (label :text "${network['ssid']}"
+                 :halign "start"
+                 :class "POP_wifi_menu_ssid_label"
+                 :width "100px")
+          (label :text "${network['strength']}"
+                 :class "POP_wifi_menu_strength_label"
+                 :halign "end")
+        )
+      )
+    )
+  )
+)

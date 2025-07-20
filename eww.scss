@@ -8,6 +8,7 @@
   font-size: 16px;
 }
 
+
 /* top bar box mixin */
 @mixin top_bar_box($color) {
   margin-top: 10px;
@@ -23,18 +24,15 @@
 
 /* top bar widgets */
 @import './styles/W_clock.scss';
-
 @import './styles/W_bat.scss';
-
 @import './styles/W_audio_bright.scss';
-
 @import './styles/W_power.scss';
 
+
 /* POP widgets */
-
-
 @import './styles/POP_power_menu.scss';
 @import './styles/POP_vol_bright.scss';
+@import './styles/POP_wifi_menu.scss';
 
 
 /* scale */
@@ -44,8 +42,6 @@ scale trough {
   border: 1px solid;
   border-color: #181825;
 }
-
-
 
 
 /* #### top bar right division #### */

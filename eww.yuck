@@ -7,9 +7,10 @@
 ;; pops for other widgets
 (include "./pops/POP_vol_bright.yuck")
 (include "./pops/POP_power_menu.yuck")
+(include "./pops/POP_wifi_menu.yuck")
 
 
-(defwidget right [] 
+(defwidget right_container [] 
   (box :orientation "h"
        :space-evenly false
        :halign "end"
@@ -32,7 +33,7 @@
            :exclusive true ;; if it should make exclusive space
            :focusable "none" ;; if the window can be focused
   (box :orientation "h" 
-    (right)   
+    (right_container)   
   )
 )
 
