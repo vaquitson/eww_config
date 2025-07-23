@@ -1,4 +1,14 @@
-(defpoll wifi_strength :interval "60s" 
-  "./scripts/volume.sh vol")
+(defpoll wifi_info :interval "30s" 
+  "python3 ./scripts/wifi.py cur_net")
+
+
+(defwidget W_wifi []
+  (button :class "W_wifi_button"
+    "${wifi_info.ssid} ${wifi_info.strength < 10 ? '󰤭' :
+                         wifi_info.strength < 25 ? '󰤟' : 
+                         wifi_info.strength < 50 ? '󰤢' :
+                         wifi_info.strength < 75 ? '󰤥': '󰤨'}"
+  )
+)
 
 

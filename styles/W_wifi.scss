@@ -1,0 +1,14 @@
+$W_wifi_color: #89b4fa;
+.W_wifi_button {
+  @include top_bar_box($W_wifi_color);
+
+  color: $W_wifi_color;
+  padding-left: 5px;
+  padding-right: 11px;
+
+  &:hover {
+    background-color: $W_wifi_color;
+    color: #11111b;
+    transition: background-color 0.5s ease, color 0.5s ease;
+  } 
+}
