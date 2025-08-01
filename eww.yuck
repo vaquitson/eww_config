@@ -1,24 +1,50 @@
 ;; widgets for the top bar
+
 (include "./widgets/W_clock.yuck")
 (include "./widgets/W_battery.yuck")
 (include "./widgets/W_audio_bright.yuck")
 (include "./widgets/W_power.yuck")
+(include "./widgets/W_wifi.yuck")
 
 ;; pops for other widgets
+
 (include "./pops/POP_vol_bright.yuck")
 (include "./pops/POP_power_menu.yuck")
 (include "./pops/POP_wifi_menu.yuck")
 
-
 (defwidget right_container [] 
   (box :orientation "h"
        :space-evenly false
+       :hexpand true
        :halign "end"
 		   :class "right_side"
-    (clock)
-    (bat)
+       :spacing 8
+    (W_wifi)
     (audio_bright)
     (power)
+  )
+)
+
+
+(defwidget left_container [] 
+  (box :orientation "h"
+       :space-evenly false
+       :hexpand true
+       :halign "start"
+       :spacing 8
+		   :class "left_side"
+    (clock)
+    (bat)
+  )
+)
+
+
+(defwidget center_container [] 
+  (box :orientation "h"
+       :space-evenly false
+       :hexpand true
+       :halign "center"
+		   :class "center_side"
   )
 )
 
@@ -32,8 +58,12 @@
            :stacking "fg" ;; the position in the window stack
            :exclusive true ;; if it should make exclusive space
            :focusable "none" ;; if the window can be focused
-  (box :orientation "h" 
+  (box :orientation "h"
+       :space-evenly false
+    (left_container)
+    (center_container)
     (right_container)   
+
   )
 )
 

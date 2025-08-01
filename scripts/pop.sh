@@ -24,10 +24,21 @@ open_pop_power_menu(){
   fi
 }
 
+open_pop_wifi_menu(){
+  close
+  if [[ $CUR_TBW != " POP_wifi_menu" ]]; then
+    ${EWW_BIN} open POP_wifi_menu --id tbw
+  fi
+}
+
 
 if [[ "$1" == "pop_bright_volumen" ]]; then
   open_pop_bright_volumen
+
 elif [[ "$1" == "pop_power_menu" ]]; then
   open_pop_power_menu
+
+elif [[ "$1" == "pop_wifi_menu" ]]; then
+  open_pop_wifi_menu
 fi
 

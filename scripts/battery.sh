@@ -10,7 +10,7 @@ bat_icon(){
   status=$(cat /sys/class/power_supply/BAT0/status)
 
   if [[ $status == "Charging" ]]; then
-    echo "󰂄"
+    echo "󱐋"
 
   elif (( $percentage <= 10 )); then
     echo "󰁺"

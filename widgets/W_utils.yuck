@@ -1,12 +1,5 @@
-(defpoll wifi_info :interval "10s" 
-                   :initial '{"ssid": "?", "strength": 0}'
-  "python3 ./scripts/wifi.py cur_net")
-
-
 (defwidget W_wifi []
   (button :class "W_wifi_button"
-          :onclick "./scripts/pop.sh pop_wifi_menu; 
-                    ${EWW_CMD} update POP_wifi_menu_open_form=''"
     "${wifi_info.ssid}  ${wifi_info.strength < 10 ? '󰤭' :
                          wifi_info.strength < 25 ? '󰤟' : 
                          wifi_info.strength < 50 ? '󰤢' :

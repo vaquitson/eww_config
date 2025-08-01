@@ -11,8 +11,7 @@
 
 /* top bar box mixin */
 @mixin top_bar_box($color) {
-  margin-top: 10px;
-  margin-right: 7px;
+  margin-top: 15px;
 
   border: 2px solid;
   border-color: $color;
@@ -27,6 +26,7 @@
 @import './styles/W_bat.scss';
 @import './styles/W_audio_bright.scss';
 @import './styles/W_power.scss';
+@import './styles/W_wifi.scss';
 
 
 /* POP widgets */
@@ -46,5 +46,9 @@ scale trough {
 
 /* #### top bar right division #### */
 .right_side {
-  padding-right: 15px;
+  margin-right: 20px;
+}
+
+.left_side {
+  margin-left: 20px;
 }

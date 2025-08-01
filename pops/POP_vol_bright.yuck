@@ -22,7 +22,6 @@
          :value bright_percent
          :width 100
          :class "brightbar"
-         :tooltip "${bright_percent}%"
          :onchange "brightnessctl set {}% | ${EWW_CMD} poll bright_percent"
       )
     )
@@ -36,7 +35,6 @@
          :value vol_percent
          :width 100
          :class "brightbar"
-         :tooltip "${vol_percent}%"
          :onchange "pactl set-sink-volume @DEFAULT_SINK@ {}% | ${EWW_CMD} poll vol_percent"
       )
     )

@@ -1,30 +1,105 @@
-(defpoll network_json :interval "10s"
-  "python3 ./scripts/wifi.py")
+;; net: is the json returnd form the scripts/wifi.py file
+;; it contains the ssid, strength and security of the avialable networks
+;; in a object array format for example: [{"ssid": "net1", "strength": 50, "security": "wpa2"}, {"ssid": "net2", "strength": 47, "security": "wpa3"}]
 
-(defwindow network_menu :monitor 0
-                             :geometry (geometry :x "20px"
-                  					                     :y "7%" 
-                                                 :anchor "top right"
-                                                 :width "400px" 
-                                                 :height "60px")
-                             :anchor "top right"
-                             :focusable "none"
-                             :stacking "fg" 
+(defpoll POP_network_json :interval "20s"
+                          :run-while {POP_wifi_menu_open_form == ""}
+  "python3 ./scripts/wifi.py net_info"
+)
+
+
+(defpoll spinner :interval "0.5s"
+                 :run-while {POP_wifi_menu_open_form != ""}
+  "./scripts/spinner.sh"
+)
+
+(defpoll POP_wifi_menu_connect_button_txt :interval "1s"
+                                  :run-while {POP_wifi_menu_open_form != ""}
+                                  :initial "Connect"
+  "nmcli -f GENERAL.STATE device show wlan0 | grep -oP '\d+'"
+)
+
+(defvar POP_wifi_menu_open_form "")
+(defvar POP_wifi_menu_password "")
+(defvar POP_wifi_menu_user "")
+
+(defwidget POP_network_button [net]
+  (button :class "POP_wifi_menu_net_button ${net.strength < 50 ? 'ssid_weak' :
+                                             net.strength < 75 ? 'ssid_medium' : 'ssid_strong'}"
+          :onclick "${EWW_CMD} update POP_wifi_menu_open_form='${POP_wifi_menu_open_form == net.ssid ? '' : net.ssid}'" 
+    (box :orientation "h"
+         :class "POP_wifi_menu_net_box"
+      (label :text "${net.ssid}"
+             :halign "start"
+             :width "100px")
+      (label :text "${net.strength}"
+             :halign "end")
+    )
+  )
+)
+
+(defwidget POP_network_menu_form_saved_net [net]
+  (box :orientation "v"
+       :space-evenly false
+    (button :onclick "nmcli device wifi connect '${net.ssid}'"
+      (box :orientation "h"
+           :space-evenly false
+        (label :text "connect")
+        (label :text " ${spinner} ")
+      )
+    )
+  )
+)
+
+
+(defwidget POP_network_menu_form_wpa2_3 [net]
+  (box :orientation "v"
+       :space-evenly false
+       :class "POP_wifi_menu_form"
+       :spacing 8
+    (box :orientation "h"
+         :space-evenly false
+      (label :text " "
+             :vexpand true)
+      (input :onchange "${EWW_CMD} update POP_wifi_menu_password={}"
+             :password true
+             :hexpand true
+      )
+    )
+    (button :onclick "nmcli device wifi connect '${net.ssid}' password '${POP_wifi_menu_password}'"
+      "Connect"
+    )
+  )
+)
+
+(defwidget POP_wifi_menu_connect_button([cmd]
+  (button :onclick "nmcli device wifi connect '${net.ssid}' password '${POP_wifi_menu_password}'"
+    "Connect"
+  )
+)
+
+
+(defwindow POP_wifi_menu :monitor 0
+                        :geometry (geometry :x "20px"
+                                            :y "7%" 
+                                            :anchor "top right"
+                                            :width "400px" 
+                                            :height "60px")
+                        :focusable "ondemand"
+                        :stacking "fg" 
 
   (box :orientation "v"
+       :space-evenly false
        :class "POP_wifi_menu_main_box"
-    (for network in network_json
-      (button :class "POP_wifi_menu_net_button ${network['strength'] < 50 ? 'ssid_weak' :
-                 network['strength'] < 75 ? 'ssid_medium' : 'ssid_strong'}"
-        (box :orientation "h"
-             :class "POP_wifi_menu_net_box"
-          (label :text "${network['ssid']}"
-                 :halign "start"
-                 :class "POP_wifi_menu_ssid_label"
-                 :width "100px")
-          (label :text "${network['strength']}"
-                 :class "POP_wifi_menu_strength_label"
-                 :halign "end")
+    (for network in POP_network_json
+      (box :orientation "v"
+           :space-evenly false
+        (POP_network_button :net network)
+        (revealer :transition "slideup"
+                  :duration "300ms"
+                  :reveal {POP_wifi_menu_open_form == network.ssid ? true : false}
+          (literal :content "${network.saved == true ? '(POP_network_menu_form_saved_net :net network)' :
+                                                       '(POP_network_menu_form_wpa2_3 :net network)'}")
         )
       )
     )
