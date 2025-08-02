@@ -8,15 +8,10 @@
 )
 
 
-(defpoll spinner :interval "0.5s"
-                 :run-while {POP_wifi_menu_open_form != ""}
-  "./scripts/spinner.sh"
-)
-
-(defpoll POP_wifi_menu_connect_button_txt :interval "1s"
-                                  :run-while {POP_wifi_menu_open_form != ""}
-                                  :initial "Connect"
-  "nmcli -f GENERAL.STATE device show wlan0 | grep -oP '\d+'"
+(defpoll POP_wifi_menu_connect_button_text :interval "1s"
+                                           :run-while {POP_wifi_menu_open_form != ""}
+                                           :initial "Connect"
+  "python3 ./scripts/wifi.py form_connect_button_text"
 )
 
 (defvar POP_wifi_menu_open_form "")
@@ -41,12 +36,10 @@
 (defwidget POP_network_menu_form_saved_net [net]
   (box :orientation "v"
        :space-evenly false
+       :class "POP_wifi_menu_form"
     (button :onclick "nmcli device wifi connect '${net.ssid}'"
-      (box :orientation "h"
-           :space-evenly false
-        (label :text "connect")
-        (label :text " ${spinner} ")
-      )
+            :class "wifi_menu_connect_button"
+      "${POP_wifi_menu_connect_button_text}"
     )
   )
 )
@@ -60,24 +53,19 @@
     (box :orientation "h"
          :space-evenly false
       (label :text " "
-             :vexpand true)
+             :vexpand true
+      )
       (input :onchange "${EWW_CMD} update POP_wifi_menu_password={}"
              :password true
              :hexpand true
       )
     )
     (button :onclick "nmcli device wifi connect '${net.ssid}' password '${POP_wifi_menu_password}'"
-      "Connect"
+            :class "wifi_menu_connect_button"
+      "${POP_wifi_menu_connect_button_text}"
     )
   )
 )
-
-(defwidget POP_wifi_menu_connect_button([cmd]
-  (button :onclick "nmcli device wifi connect '${net.ssid}' password '${POP_wifi_menu_password}'"
-    "Connect"
-  )
-)
-
 
 (defwindow POP_wifi_menu :monitor 0
                         :geometry (geometry :x "20px"

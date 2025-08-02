@@ -10,7 +10,7 @@ parser_check.add_argument("-n", "--network", required=True)
 
 subparsers.add_parser("net_info", help="Check the avialable SSID's")
 subparsers.add_parser("cur_net", help="Check the currently active network")
-subparsers.add_parser("wlan0_state", help="Check the currently active network")
+subparsers.add_parser("form_connect_button_text", help="Check the currently active network")
 
 args = parser.parse_args()
 
@@ -106,13 +106,21 @@ def get_cur_net():
 
 
 
-def wlan0_state():
+def form_connect_button_text():
     wlan0_state_cmd = "nmcli -t -f GENERAL.STATE device show wlan0"
     with os.popen(wlan0_state_cmd) as res:
         for line in res:
             line = line.split(":")[1]
             line = line.split(" ")[0]
-    print(line)
+    status = int(line)
+    if status == 100:
+        print("Connect")
+    elif status == 50 or status == 60 or status == 70:
+        print("Connecting ...")
+    elif status == 120:
+        print("Error")
+    else:
+        print(status)
 
 
 def check_previosly_used_networks(ssid):
@@ -131,7 +139,7 @@ elif args.action == "cur_net":
     get_cur_net()
 elif args.action == "CB_network_button":
     res = check_previosly_used_networks(args.ssid)
-elif args.action == "wlan0_state":
-    wlan0_state()
+elif args.action == "form_connect_button_text":
+    form_connect_button_text()
 
 

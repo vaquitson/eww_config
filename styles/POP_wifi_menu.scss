@@ -63,18 +63,18 @@ $pop_window_border_color: #cdd6f4;
       padding-bottom: 4px;
     }
   }
+}
 
-  button {
-    padding: 4px;
-    background-color: #1e1e2e; 
-    border-radius: 10px;
-    color: #b4befe;
-    font-weight: bold;
+.wifi_menu_connect_button {
+  padding: 4px;
+  background-color: #1e1e2e; 
+  border-radius: 10px;
+  color: #b4befe;
+  font-weight: bold;
 
-    &:hover {
-      background-color: #b4befe;
-      color: #11111b;
-      transition: background-color 0.5s ease, color 0.5s ease;
-    }
+  &:hover {
+    background-color: #b4befe;
+    color: #11111b;
+    transition: background-color 0.5s ease, color 0.5s ease;
   }
 }
