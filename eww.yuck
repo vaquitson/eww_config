@@ -4,6 +4,7 @@
 (include "./widgets/W_audio_bright.yuck")
 (include "./widgets/W_power.yuck")
 (include "./widgets/W_wifi.yuck")
+(include "./widgets/W_notification.yuck")
 
 ;; pops for other widgets
 (include "./pops/POP_vol_bright.yuck")

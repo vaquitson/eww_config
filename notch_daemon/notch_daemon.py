@@ -23,5 +23,14 @@ with socket.socket(socket.AF_UNIX, socket.SOCK_STREAM) as serv_s:
         json_msg = msg_to_json(msg)
         if (json_msg != None):
             if json_msg["type"] == TYPE_NOTIFICATION: 
-                update_eww(f" (label :text '{json_msg['body']}') ")
+                notification_widget = make_notification(json_msg) 
+                if (notification_widget != None):
+                    print("updating")
+                    update_eww(notification_widget)
+                else:
+                    print(error)
+        else:
+            print("json faild")
+            print(err)
         print(msg)
+        

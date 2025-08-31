@@ -1,0 +1,13 @@
+
+(defwidget notification [?title ?body urgency]
+  (box :orientation "v"
+       :halign "center"
+       :class "notification ${urgency == 1 ? 'urgency_urgent' :
+                              urgency == 2 ? 'urgency_important' : 'urgency_normal'}"
+    (label :text "${title}"
+           :class "notification_title")
+
+    (label :text "${body}"
+           :class "notification_body")
+  )
+)

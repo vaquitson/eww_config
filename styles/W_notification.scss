@@ -1,0 +1,33 @@
+.urgency_urgent {
+  color: #f38ba8;
+  border-radius: 10px;
+  border: 2px solid;
+  border-color: #f38ba8;
+}
+
+.urgency_important {
+  color: #89dceb;
+  border-radius: 10px;
+  border: 2px solid;
+  border-color: #89dceb;
+}
+
+.urgency_normal {
+  color: #b4befe;
+  border-radius: 10px;
+  border: 2px solid;
+  border-color: #b4befe;
+}
+
+.notification {
+  font-size: 15;
+
+  .notification_title {
+    font-weight: bold;
+  }
+
+  .notification_body {
+    font-size: 50%;
+    font-weight: bold;
+  }
+}
