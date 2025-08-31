@@ -1,5 +1,4 @@
 ;; widgets for the top bar
-
 (include "./widgets/W_clock.yuck")
 (include "./widgets/W_battery.yuck")
 (include "./widgets/W_audio_bright.yuck")
@@ -7,10 +6,13 @@
 (include "./widgets/W_wifi.yuck")
 
 ;; pops for other widgets
-
 (include "./pops/POP_vol_bright.yuck")
 (include "./pops/POP_power_menu.yuck")
 (include "./pops/POP_wifi_menu.yuck")
+
+(include "./notch_daemon/W_notch.yuck")
+
+(defvar var "./scripts/battery.sh -percentage")
 
 (defwidget right_container [] 
   (box :orientation "h"
@@ -45,6 +47,7 @@
        :hexpand true
        :halign "center"
 		   :class "center_side"
+    (notch)
   )
 )
 
@@ -66,4 +69,6 @@
 
   )
 )
+
+
 

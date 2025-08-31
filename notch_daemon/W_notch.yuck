@@ -1,0 +1,8 @@
+(defvar literal_widget " (label :text 'hello') ")
+
+(defwidget notch []
+  (box :orientation "h"
+       :halign "center"
+    (literal :content "${literal_widget}")
+  )
+)

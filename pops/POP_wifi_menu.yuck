@@ -14,6 +14,7 @@
   "python3 ./scripts/wifi.py form_connect_button_text"
 )
 
+
 (defvar POP_wifi_menu_open_form "")
 (defvar POP_wifi_menu_password "")
 (defvar POP_wifi_menu_user "")
@@ -32,6 +33,7 @@
     )
   )
 )
+
 
 (defwidget POP_network_menu_form_saved_net [net]
   (box :orientation "v"
@@ -66,6 +68,7 @@
     )
   )
 )
+
 
 (defwindow POP_wifi_menu :monitor 0
                         :geometry (geometry :x "20px"

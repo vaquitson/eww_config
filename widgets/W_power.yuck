@@ -1,8 +1,6 @@
 (defwidget power[]
   (button :onclick "./scripts/pop.sh pop_power_menu" 
           :class "power_box"
-    "⏻"
+    (label :text "⏻")
   )
 )
-
-

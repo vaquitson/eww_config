@@ -56,10 +56,13 @@ battery_color() {
 
   if [[ $status == "Charging" ]]; then
     echo $battery_charging_color
+
   elif [[ $percentage -le 10 ]]; then
     echo $battery_low_color
+
   else
     echo $battery_normal_color
+
   fi
 }
 
