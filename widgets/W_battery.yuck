@@ -2,7 +2,7 @@
 (defpoll bat_percentage :interval "5s" 
   "./scripts/battery.sh -percentage")
 
-(defpoll bat_icon :interval "5s" 
+(defpoll bat_icon :interval "2s" 
   "./scripts/battery.sh -icon")
 
 (defpoll bat_color :interval "2s"

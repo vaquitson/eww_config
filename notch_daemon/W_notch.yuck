@@ -1,4 +1,4 @@
-(defvar literal_widget " (label :text 'hello') ")
+(defvar literal_widget " (label :text 'Narval') ")
 
 (defwidget notch []
   (box :orientation "h"

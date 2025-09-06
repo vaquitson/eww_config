@@ -1,0 +1,3 @@
+defoutl_widget = """
+    (label)
+"""

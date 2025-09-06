@@ -37,6 +37,15 @@ def msg_to_json(msg):
     return json_msg
 
 
+def _check_json_entry(json_entry, key, spected_type):
+    if key not in json_entry:
+        return None
+
+    if not isinstance(json_entry[key], spected_type):
+        return None
+
+    return json_entry[key]
+
 def make_notification(json_msg):
     notification_desc = json_msg["body"]
     
@@ -44,31 +53,26 @@ def make_notification(json_msg):
         err = f"incorrect notification description: in body, spected a dict but get a {type(notification_desc)} insted"
         return None
 
-    if "title" not in notification_desc:
-        err = f"incorrect notification: title was not provided"
+    notification_title = _check_json_entry(notification_desc, "title", str);
+    if notification_title == None:
         return None
-    if not isinstance(notification_desc["title"], str):
-        err = f"incorrect notification: title got {type(notification_desc['title'])} spected str"
-        return None
-    notification_title = notification_desc["title"]
 
-    if "body" not in notification_desc:
-        notification_body = ""
-    if not isinstance(notification_desc["body"], str):
-        err = f"incorrect notification: body got {type(notification_desc['body'])} spected str"
-        return None
-    notification_body = notification_desc["body"]
+    notification_urgency = _check_json_entry(notification_desc, "urgency", int);
+    if notification_urgency == None:
+        notification_urgency = 3;
 
-    if "urgency" not in notification_desc:
-        notification_urgency = 3 
-    if not isinstance(notification_desc["urgency"], int):
-        err = f"incorrect notification: urgency got {type(notification_desc['urgency'])} spected int"
-        return None
-    notification_urgency = notification_desc["urgency"]
+    notification_icon = _check_json_entry(notification_desc, "icon_path", str);
+    if notification_icon == None:
+        notification_icon = ""
+
+    notification_icon_color = _check_json_entry(notification_desc, "icon_color", str);
+    if notification_icon_color == None:
+        notification_icon_color = "#89dceb"
 
     widget = f"""
-        (notification :title '{notification_desc['title']}'
-                      :body '{notification_body}'
+        (notification :title '{notification_title}'
+                      :icon_path '{notification_icon}'
+                      :icon_color '{notification_icon_color}'
                       :urgency {notification_urgency}
         )
     """
