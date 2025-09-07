@@ -11,7 +11,7 @@
 (include "./pops/POP_power_menu.yuck")
 (include "./pops/POP_wifi_menu.yuck")
 
-(include "./notch_daemon/W_notch.yuck")
+(include "./notch_daemon/notch.yuck")
 
 (defvar var "./scripts/battery.sh -percentage")
 
@@ -42,15 +42,6 @@
 )
 
 
-(defwidget center_container [] 
-  (box :orientation "h"
-       :space-evenly false
-       :hexpand true
-       :halign "center"
-		   :class "center_side"
-    (notch)
-  )
-)
 
 (defwindow top_bar
            :monitor 0
@@ -65,7 +56,6 @@
   (box :orientation "h"
        :space-evenly false
     (left_container)
-    (center_container)
     (right_container)   
 
   )

@@ -1,0 +1,24 @@
+(defvar literal_widget " (label) ")
+
+(defwidget notch []
+  (box :orientation "h"
+       :halign "fill"
+    (literal :content "${literal_widget}")
+  )
+)
+
+(defwindow notch :monitor 0
+                             :geometry (geometry :x "0px"
+                  					                     :y "-40px" 
+                                                 :anchor "top center"
+                                                 :width "400px" 
+                                                 :height "40px")
+                             :focusable "none"
+                             :stacking "fg" 
+  (box :orientation "h"
+       :hexpand true
+       :valign "center"
+    (notch)
+  )
+)
+ 

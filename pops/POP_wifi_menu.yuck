@@ -24,10 +24,8 @@
                                              net.strength < 75 ? 'ssid_medium' : 'ssid_strong'}"
           :onclick "${EWW_CMD} update POP_wifi_menu_open_form='${POP_wifi_menu_open_form == net.ssid ? '' : net.ssid}'" 
     (box :orientation "h"
-         :class "POP_wifi_menu_net_box"
       (label :text "${net.ssid}"
-             :halign "start"
-             :width "100px")
+             :halign "start")
       (label :text "${net.strength}"
              :halign "end")
     )
@@ -72,7 +70,7 @@
 
 (defwindow POP_wifi_menu :monitor 0
                         :geometry (geometry :x "20px"
-                                            :y "7%" 
+                                            :y "20px" 
                                             :anchor "top right"
                                             :width "400px" 
                                             :height "60px")

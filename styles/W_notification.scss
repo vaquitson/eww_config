@@ -14,20 +14,21 @@
 }
 
 .notification {
-  border-radius: 10px;
-  border: 2px solid;
+  border-radius: 20px;
 
-  font-size: 16px;
+  font-size: 20px;
   font-weight: bold;
   
   padding: 2px 5px;
 
-  background-color: #11111b;
+  background-color: #000000;
+
+  label {
+    margin-right: 15px;
+  }
 
   image {
-    margin-right: 5px;
-    padding-top: 3px;
-    padding-bottom: 3px;
+    margin-left: 15px;
   }
 
   }
