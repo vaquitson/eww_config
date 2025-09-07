@@ -32,7 +32,7 @@ with socket.socket(socket.AF_UNIX, socket.SOCK_STREAM) as serv_s:
                     update_eww(notification_widget)
                 else:
                     print(error)
-                time.sleep(1.5)
+                time.sleep(2)
                 update_eww(defoutl_widget) 
 
         else:

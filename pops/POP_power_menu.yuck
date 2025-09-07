@@ -3,8 +3,8 @@
 (defvar sleep_color "#74c7ec")
 
 (defwindow pop_power_menu :monitor 0
-                             :geometry (geometry :x "-20px"
-                  					                     :y "7%" 
+                             :geometry (geometry :x "-33px"
+                  					                     :y "19px" 
                                                  :anchor "top right"
                                                  :width "300px" 
                                                  :height "100px")

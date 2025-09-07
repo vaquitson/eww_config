@@ -1,6 +1,6 @@
 (defwindow pop_bright_volumen :monitor 0
-                             :geometry (geometry :x "-20px"
-                  					                     :y "7%" 
+                             :geometry (geometry :x "-35px"
+                  					                     :y "19px" 
                                                  :anchor "top right"
                                                  :width "270px" 
                                                  :height "60px")

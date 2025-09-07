@@ -6,7 +6,6 @@ battery_low_color="#f38ba8"
 
 NOTCH_DAEMON_UTIL_PATH="/home/narval/.config/eww/notch_daemon/client_test.py"
 
-
 PREV_BAT_STAT_FILE="${XDG_CACHE_HOME:-$HOME/.cache}/notch_daemon/bat_state"
 mkdir -p "$(dirname "$PREV_BAT_STAT_FILE")"
 if [[ ! -f $PREV_BAT_STAT_FILE ]]; then
