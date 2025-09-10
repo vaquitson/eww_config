@@ -1,3 +1,5 @@
+#!/bin/python3
+
 import socket
 import os
 import time
@@ -6,7 +8,6 @@ from config import *
 from utils import *
 
 socket_path = "/home/narval/.config/eww/notch_daemon/notch_daemon.sock"
-
 
 if os.path.exists(socket_path):
     os.remove(socket_path)

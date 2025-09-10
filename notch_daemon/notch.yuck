@@ -1,6 +1,6 @@
 (defvar literal_widget " (label) ")
 
-(defwidget notch []
+(defwidget W_notch []
   (box :orientation "h"
        :halign "fill"
     (literal :content "${literal_widget}")
@@ -18,7 +18,7 @@
   (box :orientation "h"
        :hexpand true
        :valign "center"
-    (notch)
+    (W_notch)
   )
 )
  
