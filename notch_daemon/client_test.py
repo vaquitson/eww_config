@@ -36,7 +36,7 @@ if args.notification:
 elif args.test:
    update_eww('''
     (notification :title 'Test'
-                      :icon_path '/home/narval/.config/eww/icons/charging_battery.svg'
+                      :icon_path '󰢚' 
                       :icon_color '#a6e3a1'
                       :urgency 3
     )

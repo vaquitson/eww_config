@@ -1,34 +1,18 @@
-.urgency_urgent {
-  color: #f38ba8;
-  border-color: #f38ba8;
-}
-
-.urgency_important {
-  color: #89dceb;
-  border-color: #89dceb;
-}
-
-.urgency_normal {
-  color: #b4befe;
-  border-color: #b4befe;
-}
 
 .notification {
   border-radius: 20px;
+  background-color: #000000;
+  border: 2px solid Black;
 
-  font-size: 20px;
+  font-size: 16px;
   font-weight: bold;
   
   padding: 2px 5px;
+  
+  margin-top: 10px;
 
-  background-color: #000000;
 
   label {
-    margin-right: 15px;
+    margin: 0px 15px;
   }
-
-  image {
-    margin-left: 15px;
-  }
-
-  }
+}

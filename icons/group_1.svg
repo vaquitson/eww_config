@@ -1,0 +1,19 @@
+
+<svg class="battery" width="645" height="300" viewBox="0 0 645 300"
+     xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+  <!-- Frame -->
+  <path fill-rule="evenodd" d="
+    M550 0C577.614 0 600 22.386 600 50v200c0 27.614-22.386 50-50 50H50C22.386 300 0 277.614 0 250V50C0 22.386 22.386 0 50 0h500Z
+    M50 25C36.193 25 25 36.193 25 50v200c0 13.807 11.193 25 25 25h500c13.807 0 25-11.193 25-25V50c0-13.807-11.193-25-25-25H50Z"/>
+  
+  <!-- Terminal -->
+  <rect x="585" y="75" width="60" height="150" rx="30"/>
+
+  <!-- Bars -->
+  <rect x="45"  y="35" width="86" height="230" rx="25"/>
+  <rect x="151" y="35" width="86" height="230" rx="25"/>
+  <rect x="257" y="35" width="86" height="230" rx="25"/>
+  <rect x="363" y="35" width="86" height="230" rx="25"/>
+  <rect x="469" y="35" width="86" height="230" rx="25"/>
+</svg>
+

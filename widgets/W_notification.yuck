@@ -1,17 +1,14 @@
 
 (defwidget notification [?title urgency ?icon_path ?icon_color]
   (box :orientation "h"
-       :height 40
-       :class "notification ${urgency == 1 ? 'urgency_urgent' :
-                              urgency == 2 ? 'urgency_important' : 'urgency_normal'}"
+       :class "notification" 
 
-    (image :path "${icon_path}"
-           :fill-svg "${icon_color}"
-           :halign "start"
-           :image-height 30)
+    (label :text "${icon_path}"
+           :style "color: ${icon_color}"
+           :halign "start")
 
     (label :text "${title}"
-           :halign "end"
-           :class "notification_title")
+           :style "color: ${icon_color}"
+           :halign "end")
   )
 )

@@ -12,8 +12,9 @@
 /* top bar box mixin */
 @mixin top_bar_box($color) {
   border: 2px solid;
-  border-color: $color;
   border-radius: 10px;
+
+  border-color: $color;
 
   padding: 2px 5px;
 }
@@ -54,7 +55,3 @@ scale trough {
   margin-left: 20px;
 }
 
-
-.center_side {
-  margin-top: 15px;
-}

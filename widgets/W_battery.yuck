@@ -10,15 +10,19 @@
   "./scripts/battery.sh -color"
 )
 
-
 (defwidget bat []
   (box :orientation "h"
        :halign "center"
+       :space-evenly false
        :class "bat_box"
        :style "border-color: ${bat_color}"
 
-    (label :text "${bat_icon}  ${bat_percentage}%" 
-           :class "bat_data"
+    (label :text "${bat_icon}" 
+           :class "bat_icon"
+           :style "color: ${bat_color}")
+
+    (label :text "${bat_percentage}%" 
+           :class "bat_text"
            :style "color: ${bat_color}")
   )
 )

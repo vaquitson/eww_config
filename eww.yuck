@@ -13,8 +13,6 @@
 
 (include "./notch_daemon/notch.yuck")
 
-(defvar var "./scripts/battery.sh -percentage")
-
 (defwidget right_container [] 
   (box :orientation "h"
        :space-evenly false
